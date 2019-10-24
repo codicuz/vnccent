@@ -1,5 +1,6 @@
 FROM centos:7
 
+ENV LANG=ru_RU.UTF-8
 ARG USERNAME="user"
 ARG VNC_PASSWD="resu2020"
 ARG ROOT_PASS="toor2020"
