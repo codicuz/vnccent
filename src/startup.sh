@@ -1,5 +1,5 @@
 #!/bin/bash
 
-GEOMETRY="${GEOMETRY:-1920x1200}"
+GEOMETRY="${GEOMETRY:-800x600}"
 
 vncserver -fg -geometry $GEOMETRY
