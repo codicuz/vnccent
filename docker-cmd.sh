@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DINAME="centos-vnc:i3"
-DCNAME="cvnc"
-HOSTNAME="c-vnc.myhost.lan"
+DINAME="centos-vnc:i3.ora-soft"
+DCNAME="cvnc-ora-soft"
+HOSTNAME="c-vnc-ora-soft.myhost.lan"
 
 NO_ARGS=0
 E_OPTERR=65
@@ -42,6 +42,7 @@ while :; do
 	  docker run -itd \
 	  --hostname $HOSTNAME \
 	  -p 5901:5901 \
+	  -v $PWD/volumes:/volumes \
 	  --name $DCNAME \
 	  $DINAME
 	 ;;

@@ -1,13 +1,10 @@
-FROM centos:7
+FROM centos-vnc:i3
 
-ARG VNC_PASSWD="resu2020"
+ENV JAVA_HOME=/usr/java/latest
+ENV LD_LIBRARY_PATH=/usr/lib/oracle/12.2/client64/lib:/usr/lib/oracle/12.2/client/lib
+ENV TNS_ADMIN=/opt
+ENV NLS_LANG=RUSSIAN_RUSSIA.AL32UTF8
 
-LABEL maintainer="Codicus" description="Centos VNC"
+COPY ["rootfs", "/"]
 
-COPY ["src", "/src"]
-
-RUN chmod -R +x /src; mkdir /root/.vnc; cp /src/xstartup /root/.vnc/xstartup; cp /src/startup.sh /; \
-  /src/install.sh; /src/configure.sh; \
-  chmod -R 600 /root/.vnc; chmod +x /root/.vnc/xstartup; rm -rfv /src
-
-CMD ["/startup.sh"]
+RUN yum -y install /distr/*.rpm; rm -rfv /distr/
