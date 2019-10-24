@@ -3,7 +3,7 @@
 echo "root:$ROOT_PASS" | chpasswd
 echo "$USERNAME:$USER_PASS" | chpasswd
 echo "$USERNAME ALL=(ALL) ALL" >> /etc/sudoers
-cp /etc/X11/Xresources /home/$USERNAME/.Xresources
+cp /src/.Xresources /home/$USERNAME/.Xresources
 printf "$VNC_PASSWD" | vncpasswd -f > /home/$USERNAME/.vnc/passwd
 chown -R $USERNAME:$USERNAME /home/$USERNAM
 chmod -R 600 /home/$USERNAME/.vnc

@@ -1,0 +1,56 @@
+! This is the global resources file that is loaded when
+! all users log in, as well as for the login screen
+
+! Fix the Xft dpi to 96; this prevents tiny fonts
+! or HUGE fonts depending on the screen size.
+Xft.dpi: 96
+
+! hintstyle: medium means that (for Postscript fonts) we
+! position the stems for maximum constrast and consistency
+! but do not force the stems to integral widths. hintnone,
+! hintslight, and hintfull are the other possibilities.
+Xft.hintstyle: hintmedium
+Xft.hinting: true
+
+URxvt.scrollBar: false
+URxvt.cursorBlink: 1
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! special
+URxvt*foreground:   #98d1ce
+URxvt*background:   #0a0f14
+URxvt*cursorColor:  #98d1ce
+
+! black
+URxvt*color0:       #0a0f14
+URxvt*color8:       #10151b
+
+! red
+URxvt*color1:       #c33027
+URxvt*color9:       #d26939
+
+! green
+URxvt*color2:       #26a98b
+URxvt*color10:      #081f2d
+
+! yellow
+URxvt*color3:       #edb54b
+URxvt*color11:      #245361
+
+! blue
+URxvt*color4:       #195465
+URxvt*color12:      #093748
+
+! magenta
+URxvt*color5:       #4e5165
+URxvt*color13:      #888ba5
+
+! cyan
+URxvt*color6:       #33859d
+URxvt*color14:      #599caa
+
+! white
+URxvt*color7:       #98d1ce
+URxvt*color15:      #d3ebe9
+
