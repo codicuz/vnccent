@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DINAME="centos-vnc:i3.ora-soft"
-DCNAME="cvnc-ora-soft"
-HOSTNAME="c-vnc-ora-soft.myhost.lan"
+DINAME="centos-vnc:i3-soft"
+DCNAME="cvnc-soft"
+HOSTNAME="c-vnc-soft.myhost.lan"
 
 NO_ARGS=0
 E_OPTERR=65
@@ -43,6 +43,7 @@ while :; do
 	  --hostname $HOSTNAME \
 	  -e GEOMETRY=1400x900 \
 	  -p 5901:5901 \
+	  -p 5902:5902 \
 	  -v $PWD/volumes:/volumes \
 	  --name $DCNAME \
 	  $DINAME

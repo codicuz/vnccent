@@ -9,7 +9,7 @@ ENV NLS_LANG=RUSSIAN_RUSSIA.AL32UTF8
 COPY ["rootfs", "/"]
 
 USER root
-RUN yum -y install libaio libaio.i686 glibc.i686 java /distr/*.rpm; \
+RUN yum -y install zip unzip libaio libaio.i686 glibc.i686 java /distr/*.rpm; \
   yum clean all; rm -rfv /distr/
 
 USER $USERNAME
