@@ -10,7 +10,7 @@ LABEL maintainer="Codicus" description="Centos VNC"
 
 COPY ["src", "/src"]
 
-RUN useradd $USERNAME; chmod -R +x /src; mkdir /home/$USERNAME/.vnc; cp /src/xstartup /home/$USERNAME/.vnc/xstartup; cp /src/startup.sh /; \
+RUN useradd $USERNAME; chmod +x /src/*.sh; mkdir /home/$USERNAME/.vnc; cp /src/xstartup /home/$USERNAME/.vnc/xstartup; cp /src/startup.sh /; \
   /src/install.sh; /src/configure.sh; \
   rm -rfv /src
 
