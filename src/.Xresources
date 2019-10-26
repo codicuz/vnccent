@@ -23,30 +23,30 @@ URxvt.tabbed.tabbar-bg: 4
 URxvt.tabbed.tab-fg:    4
 URxvt.tabbed.tab-bg:   7
 
-*.foreground:   #d5d5d5
-*.background:   #0A0F14
-*.cursorColor:  #d5d5d5
+URxvt*foreground:   #d5d5d5
+URxvt*background:   #0A0F14
+URxvt*cursorColor:  #d5d5d5
 
-*.color0:       #0A0F14
-*.color8:       #666666
+URxvt*color0:       #0A0F14
+URxvt*color8:       #666666
 
-*.color1:       #c33027
-*.color9:       #ff0000
+URxvt*color1:       #c33027
+URxvt*color9:       #ff0000
 
-*.color2:       #26a98b
-*.color10:      #00D802
+URxvt*color2:       #26a98b
+URxvt*color10:      #00D802
 
-*.color3:       #D57E4E
-*.color11:      #CECC11
+URxvt*color3:       #FDCBB0
+URxvt*color11:      #CECC11
 
-*.color4:       #0A0F14
-*.color12:      #455566
+URxvt*color4:       #0A0F14
+URxvt*color12:      #455566
 
-*.color5:       #1300FE
-*.color13:      #888ba5
+URxvt*color5:       #1300FE
+URxvt*color13:      #888ba5
 
-*.color6:       #73B6C9
-*.color14:      #121019
+URxvt*color6:       #73B6C9
+URxvt*color14:      #10D1E4
 
-*.color7:       #c5c5c5
-*.color15:      #ffffff
+URxvt*color7:       #c5c5c5
+URxvt*color15:      #ffffff
