@@ -1,25 +1,28 @@
 FROM centos:7
-
-ENV LANG=ru_RU.UTF-8
-ARG USERNAME="user"
-ARG VNC_PASSWD="resu2020"
-ARG ROOT_PASS="toor2020"
-ARG USER_PASS="resu2020"
-
 LABEL maintainer="Codicus" description="Centos VNC"
 
-COPY ["src", "/src"]
+#ARG EXTRA_YUM_PACKAGES='mc nmon iproute telnet vim'
+ARG GOSU_RELEASE="1.11"
+ARG LOCALES='ru_RU.UTF-8 ru_RU.CP1251'
 
-RUN useradd $USERNAME; chmod -R +x /src; mkdir /home/$USERNAME/.vnc; cp /src/xstartup /home/$USERNAME/.vnc/xstartup; cp /src/startup.sh /; \
-  /src/install.sh; /src/configure.sh; \
-  rm -rfv /src
+RUN yum -y install epel-release\
+ && yum -y install i3 rxvt-unicode* tigervnc-server\
+                       ${EXTRA_YUM_PACKAGES}\
+ && yum clean all\
+ && rm -vrf /var/cache/yum
 
-USER $USERNAME
+ADD rootfs /
+ADD https://github.com/tianon/gosu/releases/download/${GOSU_RELEASE}/gosu-amd64 /opt
 
-HEALTHCHECK --interval=60s --timeout=15s \
-  CMD ss -lntp | grep -q ':5901'
+RUN chmod a+xs /opt/gosu-amd64\
+ && for locale in ${LOCALES};\
+ do localeARR=(${locale//./ });\
+ localedef -i ${localeARR[0]} -f ${localeARR[1]} ${locale};\
+ done
 
 CMD ["/startup.sh"]
 
-WORKDIR /home/$USERNAME
+HEALTHCHECK --interval=60s --timeout=15s\
+ CMD ss -lntp | grep -q ':5901'
+
 EXPOSE 5901
