@@ -41,6 +41,7 @@ while :; do
 	-run)
 	  docker run -itd \
 	  --hostname $HOSTNAME \
+	  -u 1000 \
 	  -e VNC_GEOMETRY=1400x900 \
 	  -p 5901:5901 \
 	  --name $DCNAME \
