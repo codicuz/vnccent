@@ -41,7 +41,7 @@ while :; do
 	-run)
 	  docker run -itd \
 	  --hostname $HOSTNAME \
-	  -e GEOMETRY=1400x900 \
+	  -e VNC_GEOMETRY=1400x900 \
 	  -p 5901:5901 \
 	  --name $DCNAME \
 	  $DINAME
@@ -56,7 +56,7 @@ while :; do
 	  docker exec -it $DCNAME /bin/bash
 	 ;;
 	-exec0)
-	  docker exec -it -u 0 $DCNAME /bin/bash
+	  docker exec -it -u 0 -w / $DCNAME /bin/bash
 	 ;;
 	-logsf)
 	  docker logs -f $DCNAME

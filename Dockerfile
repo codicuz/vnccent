@@ -1,18 +1,25 @@
 FROM centos:7
 
-ENV LANG=ru_RU.UTF-8
 ARG USERNAME="user"
-ARG VNC_PASSWD="resu2020"
 ARG ROOT_PASS="toor2020"
 ARG USER_PASS="resu2020"
+ARG EXTRA_YUM_PACKAGES='sudo mc nmon iproute telnet vim'
+ARG LOCALES='ru_RU.UTF-8 ru_RU.CP1251'
 
 LABEL maintainer="Codicus" description="Centos VNC"
 
-COPY ["src", "/src"]
+ADD ["src", "/src"]
 
-RUN useradd $USERNAME; chmod +x /src/*.sh; mkdir /home/$USERNAME/.vnc; cp /src/xstartup /home/$USERNAME/.vnc/xstartup; cp /src/startup.sh /; \
-  /src/install.sh; /src/configure.sh; \
-  rm -rfv /src
+RUN useradd $USERNAME; chmod +x /src/*.sh; \
+  for locale in ${LOCALES}; \
+  do localeARR=(${locale//./ }); \
+  localedef -i ${localeARR[0]} -f ${localeARR[1]} ${locale}; done; \ 
+  chmod +x /src/*.sh; \
+  yum -y install epel-release; \
+  yum -y update; \
+  yum -y install i3* rxvt-unicode* tigervnc-server ${EXTRA_YUM_PACKAGES}; \
+  yum clean all; rm -rfv /var/cache/yum; \
+  /src/configure.sh; rm -rfv /src
 
 USER $USERNAME
 

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 xrdb $HOME/.Xresources
-i3
+i3 -d all
