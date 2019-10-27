@@ -41,7 +41,8 @@ while :; do
 	-run)
 	  docker run -itd \
 	  --hostname $HOSTNAME \
-	  -e GEOMETRY=1400x900 \
+	  -e VNC_PASSWORD=resu2020 \
+	  -e VNC_GEOMETRY=1400x900 \
 	  -p 5901:5901 \
 	  -p 5902:5902 \
 	  -v $PWD/volumes:/volumes \
