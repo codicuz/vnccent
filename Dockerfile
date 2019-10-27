@@ -1,5 +1,6 @@
 FROM centos:7
 
+ENV LANG="en_US.UTF-8"
 ARG USERNAME="user"
 ARG ROOT_PASS="toor2020"
 ARG USER_PASS="resu2020"
@@ -11,15 +12,15 @@ LABEL maintainer="Codicus" description="Centos VNC"
 ADD ["src", "/src"]
 
 RUN useradd $USERNAME; chmod +x /src/*.sh; \
-  for locale in ${LOCALES}; \
-  do localeARR=(${locale//./ }); \
-  localedef -i ${localeARR[0]} -f ${localeARR[1]} ${locale}; done; \ 
-  chmod +x /src/*.sh; \
   yum -y install epel-release; \
   yum -y update; \
   yum -y install i3* rxvt-unicode* tigervnc-server ${EXTRA_YUM_PACKAGES}; \
   yum clean all; rm -rfv /var/cache/yum; \
   /src/configure.sh; rm -rfv /src
+
+RUN for locale in ${LOCALES}; \
+  do localeARR=(${locale//./ }); \
+  localedef -i ${localeARR[0]} -f ${localeARR[1]} ${locale}; done
 
 USER $USERNAME
 
