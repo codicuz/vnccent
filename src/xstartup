@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 xrdb $HOME/.Xresources
 exec i3 -d all

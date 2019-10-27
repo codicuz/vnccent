@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 VNC_PASSWORD="${VNC_PASSWORD:-resu2020}"
 VNC_GEOMETRY="${VNC_GEOMETRY:-800x600}"
