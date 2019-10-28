@@ -10,6 +10,16 @@ then
  exit 1
 fi
 
+if [ -f /usr/local/bin/gosu-amd64 ] 
+then
+  id=$(id -u)
+  echo "Createing user vith uid $id."
+  gosu-amd64 0 bash -c "useradd -u $id user"
+else
+  echo "Gosu is not present. Error"
+  exit 1
+fi
+
 [ -d ${HOME}/.vnc ] || (
  echo "Info: Bootstrapping ${HOME} directory from ${DEFAULT_HOME}"
  mkdir -vp "${HOME}/.vnc"
