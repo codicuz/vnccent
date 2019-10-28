@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DINAME="centos-vnc:i3-shift"
-DCNAME="cvnc-shift"
-HOSTNAME="c-vnc-shift.myhost.lan"
+DINAME="centos-vnc:i3"
+DCNAME="cvnc"
+HOSTNAME="c-vnc.myhost.lan"
 
 NO_ARGS=0
 E_OPTERR=65
