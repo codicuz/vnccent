@@ -14,7 +14,7 @@ fi
 
 if [ ${ID} -eq 0 ] 
 then
-echo "User is 0. Skiping useradd instruction"
+echo "User is 0. Skipping useradd instruction"
 elif [ -f ${GOSU} ]
 then
   echo "Creating user with uid ${ID}."
