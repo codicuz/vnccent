@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DINAME="centos-vnc:i3"
-DCNAME="cvnc"
-HOSTNAME="c-vnc.myhost.lan"
+DINAME="centos-vnc:i3-shift"
+DCNAME="cvnc-shift"
+HOSTNAME="c-vnc-shift.myhost.lan"
 
 NO_ARGS=0
 E_OPTERR=65
@@ -41,7 +41,8 @@ while :; do
 	-run)
 	  docker run -itd \
 	  --hostname $HOSTNAME \
-	  -e VNC_PASSWORD=resu2020 \
+	  -u 10005000 \
+	  -e HOME=/tmp \
 	  -e VNC_GEOMETRY=1400x900 \
 	  -p 5901:5901 \
 	  --name $DCNAME \
