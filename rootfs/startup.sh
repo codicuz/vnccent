@@ -1,5 +1,6 @@
 #!/bin/sh -x
 
+GOSU="/usr/local/bin/gosu-amd64"
 DEFAULT_HOME="/opt/default/home/"
 VNC_PASSWORD="${VNC_PASSWORD:-resu2020}"
 VNC_GEOMETRY="${VNC_GEOMETRY:-1280x720}"
@@ -10,10 +11,10 @@ then
  exit 1
 fi
 
-if [ -f /usr/local/bin/gosu-amd64 ] 
+if [ -f ${GOSU} ] 
 then
   id=$(id -u)
-  echo "Createing user vith uid $id."
+  echo "Creating user with uid $id."
   gosu-amd64 0 bash -c "useradd -u $id user"
 else
   echo "Gosu is not present. Error"
