@@ -2,8 +2,8 @@ FROM centos:7
 
 LABEL maintainer="Codicus" description="Centos VNC"
 
-#ARG EXTRA_YUM_PACKAGES='sudo mc nmon iproute telnet vim'
-ARG LOCALES='ru_RU.UTF-8 ru_RU.CP1251'
+ENV LANG="en_US.UTF-8"
+ARG EXTRA_YUM_PACKAGES='mc nmon iproute telnet vim'
 ARG GOSU_RELEASE="1.11"
 ARG LOCALES='ru_RU.UTF-8 ru_RU.CP1251'
 
