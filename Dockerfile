@@ -13,9 +13,9 @@ RUN yum -y install epel-release; \
   rm -vrf /var/cache/yum
 
 ADD rootfs /
-ADD https://github.com/tianon/gosu/releases/download/${GOSU_RELEASE}/gosu-amd64 /opt
+ADD https://github.com/tianon/gosu/releases/download/${GOSU_RELEASE}/gosu-amd64 /usr/local/bin
 
-RUN chmod a+xs /opt/gosu-amd64; \
+RUN chmod a+xs /usr/local/bin/gosu-amd64; \
   for locale in ${LOCALES}; \
   do localeARR=(${locale//./ }); \
   localedef -i ${localeARR[0]} -f ${localeARR[1]} ${locale}; \
