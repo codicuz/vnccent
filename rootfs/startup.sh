@@ -1,5 +1,6 @@
 #!/bin/sh -x
 
+ID=$(id -u)
 GOSU="/usr/local/bin/gosu-amd64"
 DEFAULT_HOME="/opt/default/home/"
 VNC_PASSWORD="${VNC_PASSWORD:-resu2020}"
@@ -11,11 +12,13 @@ then
  exit 1
 fi
 
-if [ -f ${GOSU} ] 
+if [ ${ID} -eq 0 ] 
 then
-  id=$(id -u)
-  echo "Creating user with uid $id."
-  gosu-amd64 0 bash -c "useradd -u $id user"
+echo "User is 0. Skiping useradd instruction"
+elif [ -f ${GOSU} ]
+then
+  echo "Creating user with uid ${ID}."
+  gosu-amd64 0 bash -c "useradd -u ${ID} user"
 else
   echo "Gosu is not present. Error"
   exit 1
