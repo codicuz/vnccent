@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
     image: centos-vnc:i3
     container_name: cvnc
+    hostname: cvnc
+    domainname: myhost.lan
     ports:
       - 5901:5901
     environment:
