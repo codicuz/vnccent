@@ -1,0 +1,14 @@
+version: "3"
+services:
+  centos_test:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: centos-vnc:i3
+    container_name: cvnc
+    ports:
+      - 5901:5901
+    environment:
+      - HOME=/tmp
+      - VNC_GEOMETRY=1400x900
+
