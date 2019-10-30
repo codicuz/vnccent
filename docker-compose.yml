@@ -1,0 +1,16 @@
+version: "3"
+services:
+  centos_cvnc_i3-soft:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: centos-vnc:i3-soft
+    user: 100500:100500
+    container_name: cvnc-soft
+    hostname: cvnc-soft
+    domainname: myhost.lan
+    ports:
+      - 5901:5901
+    environment:
+      - HOME=/tmp
+      - VNC_GEOMETRY=1400x900
